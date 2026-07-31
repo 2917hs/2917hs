@@ -1,5 +1,3 @@
-## Hi there 👋
-
 # Hasan Siddiqui 👋
 
 **Senior Software Engineer**   **.NET, Cloud, Distributed Systems** | Germany
