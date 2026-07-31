@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Hasan Siddiqui — Senior Software Engineer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Linux+Libertine:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #a2a9b1;
+            --border-lt: #eaecf0;
+            --accent: #3366cc;
+            --accent-hov: #2a55b0;
+            --accent-bg: #eaf0fb;
+            --text: #202122;
+            --text-soft: #54595d;
+            --text-muted: #72777d;
+            --toc-bg: #f8f9fa;
+            --tag-bg: #eaf0fb;
+            --tag-border: #c8ccd1;
+            --green: #00af89;
+            --sidebar-w: 260px;
+            --font-serif: 'Linux Libertine', 'Georgia', serif;
+            --font-sans: 'Source Sans 3', 'Segoe UI', sans-serif
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.7
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-hov)
+        }
+
+        .topbar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .07)
+        }
+
+        .topbar-brand {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            color: var(--text);
+            font-weight: 600;
+            letter-spacing: -.3px
+        }
+
+        .topbar-links {
+            display: flex;
+            gap: 20px
+        }
+
+        .topbar-links a {
+            font-size: 13.5px;
+            color: var(--text-soft);
+            font-weight: 400
+        }
+
+        .topbar-links a:hover {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        .page-wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 28px 24px 80px;
+            display: grid;
+            grid-template-columns: var(--sidebar-w) 1fr;
+            gap: 36px;
+            align-items: start
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 72px
+        }
+
+        .profile-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 16px
+        }
+
+        .profile-card-header {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            text-transform: uppercase
+        }
+
+        .profile-avatar {
+            display: flex;
+            justify-content: center;
+            padding: 24px 0 16px;
+            background: var(--surface)
+        }
+
+        .avatar-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 3px solid var(--border-lt);
+            display: block
+        }
+
+        .profile-info {
+            padding: 0 14px 16px
+        }
+
+        .profile-info table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        .profile-info td {
+            padding: 5px 0;
+            vertical-align: top
+        }
+
+        .profile-info td:first-child {
+            color: var(--text-muted);
+            width: 44%;
+            padding-right: 8px
+        }
+
+        .profile-info td:last-child {
+            color: var(--text);
+            font-weight: 400
+        }
+
+        .profile-info tr+tr td {
+            border-top: 1px solid var(--border-lt)
+        }
+
+        section[id] {
+            scroll-margin-top: 72px
+        }
+
+        .exp-block[id],
+        .overview-block[id] {
+            scroll-margin-top: 80px
+        }
+
+        .toc-box {
+            background: var(--toc-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 14px 16px;
+            font-size: 13.5px
+        }
+
+        .toc-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-soft);
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .toc-list {
+            list-style: none
+        }
+
+        .toc-list li {
+            margin: 4px 0
+        }
+
+        .toc-list li a {
+            color: var(--accent);
+            font-size: 13.5px
+        }
+
+        .toc-list li a::before {
+            content: "→  ";
+            color: var(--accent);
+            font-size: 13px
+        }
+
+        .toc-sub {
+            list-style: none;
+            margin: 4px 0 4px 14px
+        }
+
+        .toc-sub li a {
+            font-size: 12.5px;
+            color: var(--text-soft)
+        }
+
+        .toc-sub li a::before {
+            content: "↳  ";
+            color: var(--text-muted);
+            font-size: 12px
+        }
+
+        .main {
+            min-width: 0
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 6px;
+            line-height: 1.25
+        }
+
+        .page-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-style: italic
+        }
+
+        .lead-para {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 4px 4px 0;
+            padding: 14px 18px;
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 28px
+        }
+
+        .section {
+            margin-bottom: 36px
+        }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 21px;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 3px;
+            margin-bottom: 16px
+        }
+
+        .section-heading .num {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 400;
+            margin-right: 6px
+        }
+
+        .exp-block {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden
+        }
+
+        .exp-header {
+            background: var(--toc-bg);
+            border-bottom: 1px solid var(--border-lt);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px
+        }
+
+        .exp-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text)
+        }
+
+        .exp-client {
+            font-size: 13px;
+            color: var(--accent);
+            margin-top: 2px
+        }
+
+        .exp-date {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding-top: 2px;
+            font-style: italic
+        }
+
+        .exp-desc {
+            padding: 10px 16px;
+            font-size: 13.5px;
+            color: var(--text-soft);
+            font-style: italic;
+            border-bottom: 1px solid var(--border-lt);
+            background: #fffef7
+        }
+
+        .exp-bullets {
+            padding: 12px 16px
+        }
+
+        .exp-bullets ul {
+            list-style: none
+        }
+
+        .exp-bullets ul li {
+            padding: 5px 0 5px 18px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text);
+            border-bottom: 1px solid var(--border-lt)
+        }
+
+        .exp-bullets ul li:last-child {
+            border-bottom: none
+        }
+
+        .exp-bullets ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 11px;
+            top: 7px
+        }
+
+        .overview-block {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden
+        }
+
+        .overview-block summary {
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 14.5px;
+            cursor: pointer;
+            background: var(--toc-bg);
+            border-bottom: 1px solid var(--border-lt);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            user-select: none
+        }
+
+        .overview-block summary::-webkit-details-marker {
+            display: none
+        }
+
+        .overview-block summary::after {
+            content: "▸";
+            color: var(--accent);
+            font-size: 12px;
+            transition: transform .2s
+        }
+
+        .overview-block[open] summary::after {
+            transform: rotate(90deg)
+        }
+
+        .overview-block summary:hover {
+            background: var(--accent-bg)
+        }
+
+        .overview-text {
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text)
+        }
+
+        .overview-text p+p {
+            margin-top: 12px
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .stack-card {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-radius: 4px;
+            overflow: hidden
+        }
+
+        .stack-card-title {
+            background: var(--toc-bg);
+            border-bottom: 1px solid var(--border-lt);
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-soft)
+        }
+
+        .tags {
+            padding: 10px 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
+            border-radius: 2px;
+            padding: 2px 8px;
+            font-size: 12.5px;
+            color: var(--accent);
+            white-space: nowrap
+        }
+
+        .letter-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 28px 32px;
+            font-size: 14.5px;
+            line-height: 1.85;
+            color: var(--text)
+        }
+
+        .letter-box p+p {
+            margin-top: 16px
+        }
+
+        .letter-box .salutation {
+            margin-bottom: 16px
+        }
+
+        .letter-box .sign-off {
+            margin-top: 24px
+        }
+
+        .letter-box .sign-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 8px
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px
+        }
+
+        .interest-card {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-radius: 4px;
+            padding: 16px;
+            text-align: center
+        }
+
+        .interest-icon {
+            font-size: 28px;
+            margin-bottom: 8px
+        }
+
+        .interest-label {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px
+        }
+
+        .interest-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px
+        }
+
+        .contact-item {
+            background: var(--surface);
+            border: 1px solid var(--border-lt);
+            border-radius: 4px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0
+        }
+
+        .contact-label {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .4px
+        }
+
+        .contact-value {
+            font-size: 14px;
+            color: var(--text);
+            margin-top: 1px
+        }
+
+        .wiki-footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 20px;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-top: 40px
+        }
+
+        .notice {
+            background: #fef9e7;
+            border: 1px solid #f0d060;
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #5a4a00;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start
+        }
+
+        @media(max-width:800px) {
+            .page-wrap {
+                grid-template-columns: 1fr
+            }
+
+            .sidebar {
+                position: static
+            }
+
+            .stack-grid {
+                grid-template-columns: 1fr
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .topbar-links {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar">
+        <div class="topbar-brand">Hasan Siddiqui <span style="font-size:13px;font-weight:400;color:var(--text-muted);">·
+                Senior .NET Engineer</span></div>
+        <div class="topbar-links">
+            <a href="#summary">Summary</a>
+            <a href="#stack">Stack</a>
+            <a href="#experience">Experience</a>
+            <a href="#overviews">Projects</a>
+            <a href="#cover-letter">Cover Letter</a>
+            <a href="#interests">Interests</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <div class="page-wrap">
+        <aside class="sidebar">
+            <div class="profile-card">
+                <div class="profile-card-header">Engineer Profile</div>
+                <div class="profile-avatar">
+                    <img src="https://res.cloudinary.com/dfd7qqnbe/image/upload/f_auto,q_auto/photo_ylubp1"
+                        alt="Hasan Siddiqui" class="avatar-photo" />
+                </div>
+                <div class="profile-info">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Hasan Siddiqui</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td>Senior Software Engineer</td>
+                        </tr>
+                        <tr>
+                            <td>Focus</td>
+                            <td>.NET, Cloud, Distributed Systems</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>Erlangen, Germany</td>
+                        </tr>
+                        <tr>
+                            <td>Experience</td>
+                            <td>13+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Languages</td>
+                            <td>English · German</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td><span style="color:var(--green);font-weight:600;">● Available for work</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="toc-box">
+                <div class="toc-title">Contents</div>
+                <ol class="toc-list">
+                    <li><a href="#summary">Profile Summary</a></li>
+                    <li><a href="#stack">Tech Stack</a></li>
+                    <li><a href="#experience">Work Experience</a>
+                        <ul class="toc-sub">
+                            <li><a href="#globalLogic">GlobalLogic</a></li>
+                            <li><a href="#ibm">IBM</a></li>
+                            <li><a href="#wolters">Wolters Kluwer</a></li>
+                            <li><a href="#accenture">Accenture</a></li>
+                            <li><a href="#metasys">Metasys Software</a></li>
+                            <li><a href="#itgurus">ITGurus Software</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#overviews">Project Overviews</a></li>
+                    <li><a href="#cover-letter">Cover Letter</a></li>
+                    <li><a href="#interests">Beyond Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ol>
+            </div>
+        </aside>
+        <main class="main">
+            <h1 class="page-title">Hasan Siddiqui</h1>
+            <p class="page-subtitle">Senior Software Engineer · .NET | Cloud | Full-Stack · Based in Germany</p>
+            <div class="notice">💡 This portfolio is a living document — updated as new projects are completed and
+                skills are refined.</div>
+
+            <section class="section" id="summary">
+                <h2 class="section-heading"><span class="num">1</span>Profile Summary</h2>
+                <div class="lead-para">
+                    Senior Software Engineer with <strong>13+ years of experience</strong> designing and delivering
+                    <strong>scalable, high-performance systems</strong> for global enterprises in healthcare,
+                    publishing, and enterprise platforms. Specialized in <strong>.NET, cloud architecture (AWS/Azure),
+                        and distributed systems</strong> with a strong focus on <strong>performance optimization,
+                        reliability, and modern engineering practices</strong>. Proven ability to modernize legacy
+                    platforms, lead cloud migrations, and architect event-driven microservices that handle millions of
+                    users. Passionate about clean code, observability, automation, and mentoring engineers to build
+                    maintainable, production-grade software.
+                </div>
+            </section>
+
+            <section class="section" id="stack">
+                <h2 class="section-heading"><span class="num">2</span>Tech Stack</h2>
+                <div class="stack-grid">
+                    <div class="stack-card">
+                        <div class="stack-card-title">Languages & Frameworks</div>
+                        <div class="tags">
+                            <span class="tag">C#</span><span class="tag">.NET 8/ASP.NET Core</span><span
+                                class="tag">WPF</span><span class="tag">Python</span><span class="tag">SQL</span><span
+                                class="tag">TypeScript</span><span class="tag">JavaScript (ES6+)</span><span
+                                class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React</span><span
+                                class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Architecture & Design</div>
+                        <div class="tags">
+                            <span class="tag">Microservices</span><span class="tag">DDD</span><span class="tag">Clean
+                                Architecture</span><span class="tag">CQRS</span><span
+                                class="tag">Event-Driven</span><span class="tag">BFF Pattern</span><span
+                                class="tag">REST API</span><span class="tag">GraphQL</span><span
+                                class="tag">gRPC</span><span class="tag">SOLID</span><span class="tag">GoF
+                                Patterns</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Cloud — AWS</div>
+                        <div class="tags">
+                            <span class="tag">Lambda</span><span class="tag">API Gateway</span><span
+                                class="tag">AppSync</span><span class="tag">SQS</span><span class="tag">SNS</span><span
+                                class="tag">S3</span><span class="tag">RDS</span><span class="tag">Secrets
+                                Manager</span><span class="tag">CloudFormation</span><span class="tag">CloudWatch</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Cloud — Azure</div>
+                        <div class="tags">
+                            <span class="tag">Azure Functions</span><span class="tag">AKS</span><span class="tag">Azure
+                                Service Bus</span><span class="tag">Key Vault</span><span class="tag">App
+                                Insights</span><span class="tag">Azure DevOps</span><span class="tag">Entra ID</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Data & Storage</div>
+                        <div class="tags">
+                            <span class="tag">MS SQL Server</span><span class="tag">PostgreSQL</span><span
+                                class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Entity
+                                Framework Core</span><span class="tag">LINQ</span><span class="tag">DynamoDB</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Messaging & Integration</div>
+                        <div class="tags">
+                            <span class="tag">Amazon SQS/SNS</span><span class="tag">Azure Service Bus</span><span
+                                class="tag">Kafka</span><span class="tag">Hangfire</span><span class="tag">Power
+                                Automate</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">DevOps & Infrastructure</div>
+                        <div class="tags">
+                            <span class="tag">Docker</span><span class="tag">Kubernetes (AKS)</span><span
+                                class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span
+                                class="tag">Terraform</span><span class="tag">CI/CD Pipelines</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Resilience & Observability</div>
+                        <div class="tags">
+                            <span class="tag">Polly</span><span class="tag">Distributed Tracing</span><span
+                                class="tag">CloudWatch</span><span class="tag">App Insights</span><span
+                                class="tag">Datadog</span><span class="tag">Multi-AZ HA</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Security & Compliance</div>
+                        <div class="tags">
+                            <span class="tag">AWS Secrets Manager</span><span class="tag">Azure Key Vault</span><span
+                                class="tag">GDPR</span><span class="tag">Data Masking</span><span class="tag">Entra
+                                ID/AD</span><span class="tag">PCI-DSS</span>
+                        </div>
+                    </div>
+                    <div class="stack-card">
+                        <div class="stack-card-title">Developer Productivity</div>
+                        <div class="tags">
+                            <span class="tag">GitHub Copilot</span><span class="tag">Cursor</span><span
+                                class="tag">Roslyn APIs</span><span class="tag">xUnit/NUnit</span><span
+                                class="tag">TDD</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="experience">
+                <h2 class="section-heading"><span class="num">3</span>Work Experience</h2>
+
+                <div class="exp-block" id="globalLogic">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Staff Software Engineer / Technical Lead — GlobalLogic</div>
+                            <div class="exp-client">Product: Healthcare Cloud Platform (HHAExchange)</div>
+                        </div>
+                        <div class="exp-date">May 2024 – Jul 2025</div>
+                    </div>
+                    <div class="exp-desc">Provided technical leadership for HHAeXchange's healthcare platform,
+                        supporting approximately 950K+ users across multiple AWS environments by driving backend
+                        architecture, scalability improvements, and engineering standards.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Worked on a healthcare mobile platform supporting caregiver and provider workflows,
+                                requiring reliable data processing, high availability, and seamless user experiences for
+                                distributed healthcare operations.</li>
+                            <li>Led architecture discussions for backend modernization initiatives by evaluating
+                                technology choices, building proof-of-concepts, documenting trade-offs, and presenting
+                                recommendations to architecture stakeholders.</li>
+                            <li>Designed cloud-native backend solutions for a greenfield mobile platform using Python
+                                and AWS services including Lambda, AppSync, SQS, SNS, PostgreSQL, and DynamoDB.</li>
+                            <li>Defined architectural patterns for event-driven and synchronous communication, balancing
+                                scalability, operational complexity, performance, and maintainability.</li>
+                            <li>Owned development of cross-cutting backend capabilities consumed by multiple engineering
+                                teams, improving consistency and reducing duplicated implementations across the
+                                platform.</li>
+                            <li>Created Architecture Decision Records (ADRs) to establish clear technical direction,
+                                capture design trade-offs, and improve long-term maintainability of engineering
+                                decisions.</li>
+                            <li>Designed GraphQL Backend-for-Frontend architecture to optimize mobile application data
+                                access patterns, reducing API latency by 30% and eliminating approximately 65%
+                                unnecessary data fetching.</li>
+                            <li>Improved backend scalability by introducing appropriate asynchronous processing patterns
+                                using messaging-based architectures.</li>
+                            <li>Designed solutions considering healthcare application requirements such as reliability,
+                                secure data handling, operational resilience, and production stability.</li>
+                            <li>Maintained production reliability for critical healthcare workflows, supporting platform
+                                growth while achieving 99.9% availability and zero-downtime deployments.</li>
+                            <li>Optimized a performance-critical .NET reporting module by analyzing backend processing,
+                                SQL queries, and UI bottlenecks, reducing report generation time from approximately 90
+                                seconds to 40 seconds.</li>
+                            <li>Established engineering standards around SOLID principles, asynchronous programming,
+                                testing strategies, and maintainable architecture patterns.</li>
+                            <li>Mentored 4+ engineers through architecture reviews, design discussions, debugging
+                                sessions, and technical coaching.</li>
+                            <li>Partnered with product managers, architects, and engineering teams to convert ambiguous
+                                healthcare requirements into scalable technical solutions.</li>
+                            <li>Used AI-assisted engineering tools including GitHub Copilot and Cursor to improve
+                                developer productivity while maintaining strict code review and quality standards.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-block" id="ibm">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Staff Software Engineer — IBM</div>
+                            <div class="exp-client">Product: Medical Device Software (Baxter ExactaMix Pro)</div>
+                        </div>
+                        <div class="exp-date">Apr 2022 – May 2024</div>
+                    </div>
+                    <div class="exp-desc">Developed and maintained software supporting Baxter ExactaMix Pro automated
+                        compounding systems, a healthcare product used in hospital pharmacies and compounding centers
+                        worldwide.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Owned the complete software lifecycle including architecture discussions, development,
+                                testing, deployment, production troubleshooting, and collaboration with clinical and
+                                technical stakeholders.</li>
+                            <li>Led modernization of a legacy WPF application by designing and implementing a
+                                Domain-Driven Design-based microservices architecture using .NET technologies.</li>
+                            <li>Evaluated existing system boundaries and defined incremental migration strategies to
+                                reduce monolithic complexity while maintaining operational continuity.</li>
+                            <li>Designed backend services using scalable architecture patterns to improve
+                                maintainability, deployment flexibility, and long-term system evolution.</li>
+                            <li>Worked in a healthcare environment requiring strong focus on reliability, cybersecurity
+                                considerations, auditability, and operational correctness.</li>
+                            <li>Introduced resilience patterns using Polly, including retry, timeout, and circuit
+                                breaker strategies, improving application stability for critical workflows.</li>
+                            <li>Designed failure-handling strategies to prevent dependency failures from affecting
+                                pharmacy operations.</li>
+                            <li>Integrated compliance-compatible barcode scanning workflows by collaborating with
+                                hardware teams, vendors, QA engineers, and hospital pharmacy users.</li>
+                            <li>Improved operational efficiency by designing automation workflows that increased
+                                throughput by 64% and reduced processing errors by 82%.</li>
+                            <li>Supported deployments across multiple locations and collaborated with international
+                                teams to ensure consistent system behavior.</li>
+                            <li>Worked directly with product owners, architects, QA teams, and clinical stakeholders to
+                                translate healthcare requirements into technical solutions.</li>
+                            <li>Owned production troubleshooting and root cause analysis for application issues
+                                affecting operational workflows.</li>
+                            <li>Built internal engineering tools using AI capabilities to automate repetitive tasks and
+                                improve development efficiency.</li>
+                            <li>Established engineering practices around testing, maintainability, reliability, and
+                                production readiness.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-block" id="wolters">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Senior Product Software Engineer — Wolters Kluwer</div>
+                            <div class="exp-client">Product: Lippincott Journals</div>
+                        </div>
+                        <div class="exp-date">Mar 2021 – Apr 2022</div>
+                    </div>
+                    <div class="exp-desc">Contributed as a Senior .NET Fullstack Engineer to Lippincott's digital
+                        publishing platform, enhancing research accessibility, platform performance, and automation
+                        through scalable cloud-native architectures and secure fullstack development.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Manage CI/CD pipeline (Jenkins, PowerShell, Octopus Deploy) for 15 Azure Functions,
+                                improving release frequency by 70%, while containerizing workloads with Docker and
+                                deploying to AKS.</li>
+                            <li>Integrate CyberSource Flex Microform for PCI-DSS-compliant payments and enhance JWT
+                                authentication with refresh tokens, maintaining enterprise security standards for a
+                                high-traffic academic publishing platform.</li>
+                            <li>Optimize batch email workflows with async/await, reducing notification latency by 50%,
+                                and develop reusable .NET and React components to accelerate feature delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-block" id="accenture">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Application Development Specialist — Accenture</div>
+                            <div class="exp-client">Product: Metropolitan Police (CRIS/Connect)</div>
+                        </div>
+                        <div class="exp-date">Dec 2016 – Mar 2021</div>
+                    </div>
+                    <div class="exp-desc">Led modernization of a mission-critical Policing Service platform, migrating
+                        legacy systems to Microsoft Azure hybrid cloud, enhancing scalability, performance, security,
+                        and compliance with GDPR and OWASP standards.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Lead modernization of policing platform, migrating legacy systems to Azure hybrid cloud
+                                with zero downtime, while operating GDPR-compliant Data Masking Framework processing 1M+
+                                records.</li>
+                            <li>Troubleshoot and resolve COM+ memory leaks via runtime profiling, reducing production
+                                crash incidents by 60%, and maintain CI/CD pipelines (Jenkins, SonarQube, Azure DevOps)
+                                improving deployment speed by 50%.</li>
+                            <li>Automate user access synchronization (40K users) between Active Directory and SAP BI,
+                                reducing migration time by 70%, while containerizing legacy services for AKS and
+                                enforcing OWASP-compliant security standards.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-block" id="metasys">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">IT Consultant — Metasys Software</div>
+                            <div class="exp-client">Product: Embroidery & Artwork Management Platform</div>
+                        </div>
+                        <div class="exp-date">Jul 2014 – Aug 2016</div>
+                    </div>
+                    <div class="exp-desc">Contributed as a Fullstack .NET Developer to an enterprise-grade embroidery
+                        and artwork management platform, optimizing e-commerce order processing, secure payments, and
+                        scalable infrastructure for 30+ retail websites.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Developed responsive product ordering module (ASP.NET Core, JavaScript, SQL Server) for
+                                30+ e-commerce sites, increasing order throughput by 40%, and integrated Authorize.Net
+                                with PCI-DSS-compliant workflows.</li>
+                            <li>Optimized SQL Server stored procedures using SQL Profiler and Execution Plan Analyzer,
+                                achieving up to 45% reduction in query execution time and improving order processing
+                                latency.</li>
+                            <li>Implemented DAST/SAST security tools (Netsparker, SonarQube), remediated XSS
+                                vulnerabilities, and managed IIS/Web Farm ARR load balancing, maintaining 99.9% uptime.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-block" id="itgurus">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Software Engineer — ITGurus Software</div>
+                            <div class="exp-client">Product: HRMS Platform</div>
+                        </div>
+                        <div class="exp-date">Jun 2011 – Jun 2014</div>
+                    </div>
+                    <div class="exp-desc">Contributed as a Senior Fullstack .NET Developer to a scalable HRMS platform
+                        enabling multi-tenant workforce management, automated time-tracking, holiday authorization, and
+                        multimedia storage integrated with Azure and modern CI/CD pipelines.</div>
+                    <div class="exp-bullets">
+                        <ul>
+                            <li>Engineered high-performance multithreaded web scraping service to extract data from 20+
+                                e-commerce sites 4x daily, boosting automation throughput by 60%. Resolved race
+                                conditions using TPL and async/await, improving reliability across concurrent
+                                operations.</li>
+                            <li>Designed and implemented secure timesheet authorization workflow (ASP.NET Core, EF Core,
+                                SQL Server) and integrated Azure Blob Storage, reducing retrieval latency by 40%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="overviews">
+                <h2 class="section-heading"><span class="num">4</span>Project Overviews</h2>
+                <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:16px;font-style:italic;">
+                    Interview-style narratives — click to expand each project.</p>
+
+                <details class="overview-block">
+                    <summary>GlobalLogic — HHAExchange (Home-Care Platform)</summary>
+                    <div class="overview-text">
+                        <p>HHAExchange is a leading home-health management platform in the United States, serving close
+                            to a million users — caregivers, coordinators, and administrators — across scheduling,
+                            Electronic Visit Verification (EVV), and mobile care coordination. As a Staff Software
+                            Engineer / Technical Lead, I provided technical leadership for the platform, supporting
+                            approximately 950K+ users across multiple AWS environments by driving backend architecture,
+                            scalability improvements, and engineering standards.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I designed and developed a serverless backend for a greenfield mobile platform using Python
+                            and AWS services (Lambda, AppSync, SQS, SNS, PostgreSQL, DynamoDB). I led architecture
+                            discussions for backend modernization, building proof-of-concepts and documenting trade-offs
+                            in ADRs. I implemented a GraphQL Backend-for-Frontend architecture that eliminated 65% of
+                            over-fetching and improved API response times by 30%. I also maintained production
+                            reliability with 99.9% availability and zero-downtime deployments, while mentoring 4+
+                            engineers on best practices.</p>
+
+                        <p>For observability, I worked with Datadog, CloudWatch, and LLM-powered error analysis, and
+                            maintained CI/CD pipelines using GitHub Actions and Azure DevOps, reducing MTTR by 25%. I
+                            also optimized a performance-critical .NET reporting module, reducing report generation time
+                            from 90 seconds to 40 seconds through backend and SQL optimizations.</p>
+                    </div>
+                </details>
+
+                <details class="overview-block">
+                    <summary>IBM — Baxter International (ExactaMix)</summary>
+                    <div class="overview-text">
+                        <p>Baxter International is a global medical device and healthcare company. The ExactaMix product
+                            is an automated compounding system used in hospitals across the US and Europe for clinical
+                            nutrition. This is a highly regulated, safety-critical environment where every change
+                            undergoes strict compliance and regulatory review.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I modernized the legacy WPF compounding system by refactoring it into DDD-based .NET 6
+                            microservices, resolving compute bottlenecks with asynchronous programming and concurrency
+                            provisioning. I introduced resilience patterns using Polly (retries, timeouts, circuit
+                            breakers) to handle transient faults, reducing production incidents and increasing service
+                            uptime for critical hospital operations.</p>
+
+                        <p>I integrated Data Matrix standards into the product lifecycle to ensure compliance with
+                            hardware specifications and evolving healthcare regulations. I also established proactive
+                            monitoring with AWS CloudWatch and Application Insights, improving operational stability.
+                            Additionally, I collaborated with stakeholders to implement scalable backend and frontend
+                            features, aligning system architecture with business growth objectives.</p>
+                    </div>
+                </details>
+
+                <details class="overview-block">
+                    <summary>Wolters Kluwer — Lippincott Journals</summary>
+                    <div class="overview-text">
+                        <p>Lippincott Journals is part of Wolters Kluwer, one of the world's leading academic and
+                            medical publishing companies. The platform serves researchers, authors, doctors, medical
+                            staff, and university students with peer-reviewed scientific and medical literature. It's a
+                            high-traffic platform where reliability and user experience are paramount.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I managed the CI/CD pipeline (Jenkins, PowerShell, Octopus Deploy) for 15 Azure Functions,
+                            improving release frequency by 70%, while containerizing workloads with Docker and deploying
+                            to AKS. I integrated CyberSource Flex Microform for PCI-DSS-compliant payments and enhanced
+                            JWT authentication with refresh tokens, maintaining enterprise security standards.</p>
+
+                        <p>I also optimized batch email workflows with async/await, reducing notification latency by
+                            50%, and developed reusable .NET and React components to accelerate feature delivery across
+                            the platform.</p>
+                    </div>
+                </details>
+
+                <details class="overview-block">
+                    <summary>Accenture — Metropolitan Police (CRIS/Connect)</summary>
+                    <div class="overview-text">
+                        <p>CRIS — the Crime Recording Information System — is the Metropolitan Police Service's core
+                            crime recording platform, one of the most sensitive and operationally critical systems in UK
+                            law enforcement. The data is extremely sensitive, processes are tightly governed, and the
+                            stakes of getting something wrong are very high.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I led the modernization of the policing platform, migrating legacy systems to Azure hybrid
+                            cloud with zero downtime, while operating a GDPR-compliant Data Masking Framework processing
+                            1M+ records with Azure Key Vault encryption. This enabled safe use of anonymized data for AI
+                            integration and automation workflows.</p>
+
+                        <p>I troubleshot and resolved a long-standing COM+ memory leak via runtime profiling, reducing
+                            production crash incidents by 60%. I also automated user access synchronization between
+                            Active Directory and SAP BI for 40,000 users, reducing migration time by 70%, while
+                            containerizing legacy services for AKS and enforcing OWASP-compliant security standards.</p>
+                    </div>
+                </details>
+
+                <details class="overview-block">
+                    <summary>Metasys Software — Embroidery & Artwork Management Platform</summary>
+                    <div class="overview-text">
+                        <p>This enterprise-grade platform serves 30+ retail websites, handling e-commerce order
+                            processing, secure payments, and scalable infrastructure for embroidery and artwork
+                            management.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I developed a responsive product ordering module using ASP.NET Core, JavaScript, and SQL
+                            Server, increasing order throughput by 40%. I integrated Authorize.Net with
+                            PCI-DSS-compliant workflows, improving transaction security and fraud prevention. I also
+                            optimized SQL Server stored procedures using SQL Profiler and Execution Plan Analyzer,
+                            achieving up to 45% reduction in query execution time.</p>
+
+                        <p>Additionally, I implemented DAST/SAST security tools (Netsparker, SonarQube), remediated XSS
+                            vulnerabilities, and managed IIS/Web Farm ARR load balancing, maintaining 99.9% uptime.</p>
+                    </div>
+                </details>
+
+                <details class="overview-block">
+                    <summary>ITGurus Software — HRMS Platform</summary>
+                    <div class="overview-text">
+                        <p>This scalable HRMS platform enables multi-tenant workforce management, automated
+                            time-tracking, holiday authorization, and multimedia storage integrated with Azure and
+                            modern CI/CD pipelines.</p>
+
+                        <p><strong>Key Contributions:</strong></p>
+                        <p>I engineered a high-performance multithreaded web scraping service to extract data from 20+
+                            e-commerce sites 4x daily, boosting automation throughput by 60%. I resolved race conditions
+                            using TPL and async/await, improving reliability across concurrent operations. I also
+                            designed and implemented a secure timesheet authorization workflow using ASP.NET Core, EF
+                            Core, and SQL Server, and integrated Azure Blob Storage, reducing retrieval latency by 40%.
+                        </p>
+                    </div>
+                </details>
+            </section>
+
+            <section class="section" id="cover-letter">
+                <h2 class="section-heading"><span class="num">5</span>Cover Letter</h2>
+                <div class="letter-box">
+                    <p class="salutation">Dear Hiring Manager,</p>
+                    <p>
+                        I am a Senior Software Engineer with over 13 years of experience designing and delivering
+                        scalable, high-performance systems for global enterprises. My expertise spans full-stack .NET
+                        development, cloud architecture (AWS/Azure), distributed systems, and modern engineering
+                        practices. Throughout my career, I have successfully modernized legacy platforms, led cloud
+                        migrations, and architected event-driven microservices that handle millions of users.
+                    </p>
+                    <p>
+                        What sets me apart is my ability to bridge the gap between technical excellence and business
+                        impact. I don't just write code—I build systems that solve real-world problems. Whether it's
+                        optimizing a reporting module to reduce generation time from 90 seconds to 40 seconds, or
+                        designing a GraphQL Backend-for-Frontend that eliminates 65% of unnecessary data fetching, I
+                        focus on delivering measurable improvements that directly benefit the business.
+                    </p>
+                    <p>
+                        I am particularly passionate about clean code, observability, and automation. I believe that
+                        well-architected systems should be maintainable, scalable, and a joy to work with. This
+                        philosophy has guided my work across healthcare, publishing, and enterprise platforms, where
+                        I've consistently delivered solutions that exceed expectations.
+                    </p>
+                    <p>
+                        I am currently seeking a new challenge where I can leverage my skills in .NET, cloud
+                        technologies, and distributed systems to make a significant impact. I am excited about the
+                        opportunity to contribute to your team and help drive technical excellence in your organization.
+                    </p>
+                    <p class="sign-off">Best regards,<br>
+                        <span class="sign-name">Hasan Siddiqui</span>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="interests">
+                <h2 class="section-heading"><span class="num">6</span>Beyond Work</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">📚</div>
+                        <div class="interest-label">Reading</div>
+                        <div class="interest-desc">From classic literature to cutting-edge tech blogs, I'm always
+                            expanding my knowledge.</div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🎮</div>
+                        <div class="interest-label">Gaming</div>
+                        <div class="interest-desc">Strategy games and RPGs help me unwind and think differently about
+                            problem-solving.</div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🚀</div>
+                        <div class="interest-label">Space Exploration</div>
+                        <div class="interest-desc">I'm fascinated by the technology and innovation driving space
+                            exploration.</div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🎵</div>
+                        <div class="interest-label">Music</div>
+                        <div class="interest-desc">Playing and listening to music is a creative outlet that complements
+                            my technical work.</div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🏃</div>
+                        <div class="interest-label">Fitness</div>
+                        <div class="interest-desc">Regular exercise helps me maintain focus and energy for the demanding
+                            work of software engineering.</div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🌍</div>
+                        <div class="interest-label">Travel</div>
+                        <div class="interest-desc">Exploring new places and cultures broadens my perspective and
+                            inspires my work.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-heading"><span class="num">7</span>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">hasan.siddiqui@example.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">+49 123 456789</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">linkedin.com/in/hasan-siddiqui</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Erlangen, Germany</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="wiki-footer">Built with care by Hasan Siddiqui · © 2025</footer>
+</body>
+
+</html>
