@@ -16,7 +16,7 @@
 ### 🌍 Let's Connect
 - [GitHub](https://github.com/2917hs)
 - [LinkedIn](https://www.linkedin.com/in/2917hs/)
-- [Portfolio](https://2917hs.github.io/2917hs/)) 
+- [Portfolio](https://2917hs.github.io/2917hs/)
 ---
 ### 💡 Fun Fact
 Passionate about building scalable systems and exploring new technologies.
