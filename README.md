@@ -1,3 +1,4 @@
+
 # Hasan Siddiqui 👋
 
 **Senior Software Engineer .NET** | Germany
@@ -9,7 +10,7 @@
 🌐 **GitHub Organization** : [https://github.com](https://github.com/2917hs-org)
 
 ---
-<img alt="favicon-32" src="https://github.com/user-attachments/assets/ba201463-ed95-4397-927e-74e5b99fd737" /> **Currently working on** : [Theme Studio](https://2917hs-org.github.io/theme-studio/)
+<img width="180" height="180" alt="apple-touch-icon" src="https://github.com/user-attachments/assets/750913af-2194-4199-a12b-c305b2173b34" />**Currently working on** : [Theme Studio](https://2917hs-org.github.io/theme-studio/)
 
 ---
 💡 **About me** : I'm a Senior Software Engineer with 10+ years of experience building scalable, production-grade backend systems on cloud. Specialises in distributed systems, microservices architecture, and cloud-native development, with a track record of delivering reliable, high- performance software across Agile and SAFe teams in Europe, India, and North America. Focused on maintainability, observability, and compliance, GDPR, PCI-DSS, and medical-grade regulatory standards. Actively mentors engineers and drives engineering quality improvements across cross-functional teams.
